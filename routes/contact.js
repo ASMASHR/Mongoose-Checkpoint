@@ -71,7 +71,7 @@ router.delete('/deleteMany',(req,res)=>{
 })
 //  Search Query  :sorted by name , limit the results to three documents, and hide their email
 router.get('/SortedSearch',(req,res)=>{
-    Contact.find().sort("name").limit(3).select("name").select("phone")
+    Contact.find().sort("name").limit(3).select(["name","phone"] )
     .then(users=>res.send({"Sorted contacts list": users}) )
     .catch(err=>{console.log(err)})
 })
